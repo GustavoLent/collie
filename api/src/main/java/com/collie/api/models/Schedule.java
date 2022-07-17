@@ -2,35 +2,23 @@ package com.collie.api.models;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import lombok.Data;
-
-@Data
-@Entity
 public class Schedule {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
-    private Date date;
+    public Long id;
+    public Date date;
+    public String name;
+    public String phone;
+    public double price;
+    public String service;
+    public int status;
 
-    private String name;
-
-    private String phone;
-
-    private double price;
-
-    private String service;
-
-    private int status;
+    public Schedule(Long id, Date date, String name, String phone, double price, String service, int status) {
+        this.id = id;
+        this.date = date;
+        this.name = name;
+        this.phone = phone;
+        this.price = price;
+        this.service = service;
+        this.status = status;
+    }
 }
