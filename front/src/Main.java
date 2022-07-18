@@ -20,7 +20,7 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
-        setBackground(new Color(255, 255, 255, 255));
+        setBackground(new Color(0, 0, 0, 0));
         home = (new ScreenHome());
         cad = (new ScreenCad());
         menu1.initMoving(this);
