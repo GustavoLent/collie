@@ -13,35 +13,41 @@ import javax.swing.JScrollPane;
  * @author JoséRobertoFernandes
  */
 public class ScreenHome extends javax.swing.JPanel {
+        private Card totalCard;
+        private Card catsCard;
+        private Card dogsCard;
+
+        private javax.swing.JLayeredPane cardgrid;
+        private javax.swing.JLabel tableDescriptionLabel;
+        private javax.swing.JScrollPane jScrollPane1;
+        private PanelBorder panelBorder;
+        private Table table;
 
         /**
          * Creates new form ScreenHome
          */
         public ScreenHome() {
                 initComponents();
-                // CARDS
-                card1.setData(new CardModel(new ImageIcon(getClass().getResource("resources/ico/user.png")), "Total",
-                                "10",
-                                "Lorem ipsum dolor sit amet"));
-                card2.setData(new CardModel(new ImageIcon(getClass().getResource("resources/ico/profit.png")), "Gato",
-                                "20",
-                                "Lorem ipsum dolor sit amet"));
-                card3.setData(new CardModel(new ImageIcon(getClass().getResource("resources/ico/flag.png")), "Cachorro",
-                                "30",
-                                "Lorem ipsum dolor sit amet"));
+
+                totalCard.setData(getTotalCard());
+                catsCard.setData(getCatsCard());
+                dogsCard.setData(getDogsCard());
+
                 // TABELA
                 jScrollPane1.getViewport().setBackground(Color.white);
                 JPanel p = new JPanel();
                 p.setBackground(Color.white);
                 jScrollPane1.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
+
                 // ID NOME TELEFONE VALOR SERVICO STATUS
-                table1.addRow(new Object[] { "1", "Jose", "19912345678", "90", "Banho", StatusType.PENDENTE });
-                table1.addRow(new Object[] { "1", "Jose", "19912345678", "120", "Tosa", StatusType.CONCLUIDO });
-                table1.addRow(new Object[] { "1", "Jose", "19912345678", "90", "Banho", StatusType.PENDENTE });
+                table.addRow(new Object[] { "1", "Jose", "19912345678", "90", "Banho", StatusType.PENDENTE });
+                table.addRow(new Object[] { "1", "Jose", "19912345678", "120", "Tosa", StatusType.CONCLUIDO });
+                table.addRow(new Object[] { "1", "Jose", "19912345678", "90", "Banho", StatusType.PENDENTE });
+
                 /*
-                 * table1.addRow(new Object[]{"1", "Jose", "19912345678","120", "Tosa",
+                 * table.addRow(new Object[]{"1", "Jose", "19912345678","120", "Tosa",
                  * StatusType.CONCLUIDO});
-                 * table1.addRow(new Object[]{"1", "Jose", "19912345678","90", "Banho",
+                 * table.addRow(new Object[]{"1", "Jose", "19912345678","90", "Banho",
                  * StatusType.PENDENTE});;
                  */
 
@@ -56,31 +62,30 @@ public class ScreenHome extends javax.swing.JPanel {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
         private void initComponents() {
-
                 cardgrid = new javax.swing.JLayeredPane();
-                card1 = new Card();
-                card2 = new Card();
-                card3 = new Card();
-                panelBorder1 = new PanelBorder();
-                jLabel1 = new javax.swing.JLabel();
+                totalCard = new Card();
+                catsCard = new Card();
+                dogsCard = new Card();
+                panelBorder = new PanelBorder();
+                tableDescriptionLabel = new javax.swing.JLabel();
                 jScrollPane1 = new javax.swing.JScrollPane();
-                table1 = new Table();
+                table = new Table();
 
                 setBackground(new java.awt.Color(255, 255, 255));
                 setPreferredSize(new java.awt.Dimension(1016, 531));
 
                 cardgrid.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
-                cardgrid.add(card1);
-                cardgrid.add(card2);
-                cardgrid.add(card3);
+                cardgrid.add(totalCard);
+                cardgrid.add(catsCard);
+                cardgrid.add(dogsCard);
 
-                panelBorder1.setForeground(new java.awt.Color(255, 255, 255));
+                panelBorder.setForeground(new java.awt.Color(255, 255, 255));
 
-                jLabel1.setText("Agendamentos");
+                tableDescriptionLabel.setText("Agendamentos");
 
                 jScrollPane1.setBorder(null);
 
-                table1.setModel(new javax.swing.table.DefaultTableModel(
+                table.setModel(new javax.swing.table.DefaultTableModel(
                                 new Object[][] {
 
                                 },
@@ -95,29 +100,29 @@ public class ScreenHome extends javax.swing.JPanel {
                                 return canEdit[columnIndex];
                         }
                 });
-                jScrollPane1.setViewportView(table1);
+                jScrollPane1.setViewportView(table);
 
-                javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
-                panelBorder1.setLayout(panelBorder1Layout);
-                panelBorder1Layout.setHorizontalGroup(
-                                panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                javax.swing.GroupLayout panelBorderLayout = new javax.swing.GroupLayout(panelBorder);
+                panelBorder.setLayout(panelBorderLayout);
+                panelBorderLayout.setHorizontalGroup(
+                                panelBorderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(panelBorderLayout.createSequentialGroup()
                                                                 .addContainerGap()
-                                                                .addGroup(panelBorder1Layout
+                                                                .addGroup(panelBorderLayout
                                                                                 .createParallelGroup(
                                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(jLabel1)
+                                                                                .addComponent(tableDescriptionLabel)
                                                                                 .addComponent(jScrollPane1,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 974,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                 Short.MAX_VALUE)));
-                panelBorder1Layout.setVerticalGroup(
-                                panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                panelBorderLayout.setVerticalGroup(
+                                panelBorderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(panelBorderLayout.createSequentialGroup()
                                                                 .addContainerGap()
-                                                                .addComponent(jLabel1)
+                                                                .addComponent(tableDescriptionLabel)
                                                                 .addPreferredGap(
                                                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jScrollPane1)
@@ -132,7 +137,7 @@ public class ScreenHome extends javax.swing.JPanel {
                                                                 .addGroup(layout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING,
                                                                                 false)
-                                                                                .addComponent(panelBorder1,
+                                                                                .addComponent(panelBorder,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 Short.MAX_VALUE)
@@ -149,20 +154,30 @@ public class ScreenHome extends javax.swing.JPanel {
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(
                                                                                 javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(panelBorder1,
+                                                                .addComponent(panelBorder,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)));
         }// </editor-fold>//GEN-END:initComponents
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private Card card1;
-        private Card card2;
-        private Card card3;
-        private javax.swing.JLayeredPane cardgrid;
-        private javax.swing.JLabel jLabel1;
-        private javax.swing.JScrollPane jScrollPane1;
-        private PanelBorder panelBorder1;
-        private Table table1;
-        // End of variables declaration//GEN-END:variables
+        private CardModel getTotalCard() {
+                return new CardModel(
+                                new ImageIcon(getClass().getResource("resources/ico/user.png")),
+                                "Total",
+                                "10",
+                                "Lorem ipsum dolor sit amet");
+        }
+
+        private CardModel getCatsCard() {
+                return new CardModel(new ImageIcon(getClass().getResource("resources/ico/profit.png")), "Gato",
+                                "20",
+                                "Lorem ipsum dolor sit amet");
+        }
+
+        private CardModel getDogsCard() {
+                return new CardModel(new ImageIcon(getClass().getResource("resources/ico/flag.png")),
+                                "Cachorro",
+                                "30",
+                                "Lorem ipsum dolor sit amet");
+        }
 }
